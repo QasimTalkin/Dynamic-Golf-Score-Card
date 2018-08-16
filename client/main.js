@@ -25,7 +25,7 @@ Meteor.startup (function() {
   (<div>
     <h1>{title}</h1>
     <p> Hey {name}! </p>
-    <p> Welcome </p>
+    <p> Welcome to my web This is in test satge</p>
     {renderPlayers(players)}
   </div>);
   ReactDom.render(jsx, document.getElementById('app'));
