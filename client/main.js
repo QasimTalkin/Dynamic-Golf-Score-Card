@@ -20,7 +20,7 @@ const addUser =  function(e){
   e.preventDefault();
 
   if(newPlayer){
-    e.target.playerName.value='';
+    e.target.playerName.value='';//we make the form empty not the value
     e.target.playerScore.value='';
     Players.insert({name:newPlayer, score:playerScore});
   }
