@@ -14,8 +14,23 @@ import {Players} from './../imports/api/players'; // imports player collection f
   });
   };
 
+const addUser =  function(e){
+  let newPlayer= e.target.playerName.value;
+  let playerScore = e.target.playerScore.value;
+  e.preventDefault();
+
+  if(newPlayer){
+    e.target.playerName.value='';
+    e.target.playerScore.value='';
+    Players.insert({name:newPlayer, score:playerScore});
+  }
+
+};
+
+
+
+
 Meteor.startup (function() {
-  Players.insert({name: 'Reader', score:'33'});
   Tracker.autorun(function () { // trackes colelctions and does something when
     let players = Players.find().fetch(); // fetch collection from database
     let title = 'Score Keeper';
@@ -26,9 +41,10 @@ Meteor.startup (function() {
       <p> Hey {name}! </p>
       <p> Welcome tos my web This is in test satge</p>
       {renderPlayers(players)}
-      <form>
-      <input type='text' name='player name' placeholder='Player Name'></input>
-      <button>Add Player</button>
+      <form onSubmit={addUser}>
+      <input type='text' name='playerName' placeholder='Player Name'></input>
+      <input type='text' name='playerScore' placeholder='Player Score'></input>
+      <button>ADD</button>
       </form>
     </div>);
     ReactDom.render(jsx, document.getElementById('app'));
