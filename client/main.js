@@ -5,18 +5,20 @@ import ReactDom from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker'; //track and return changed quries
 import {Players} from './../imports/api/players'; // imports player collection from monogo
+import TitleBar from './../imports/ui/TitleBar';
+import AddPlayer from './../imports/ui/AddPlayer';
 
   const renderPlayers = (playerList) => {
   return playerList.map((player)=>{ //after maping
   return <p key={player._id}>
-          {player.name} has a Scoer of {player.score} points.
+          {player.name} has a Scoer of {player.score} point(s).
             <button onClick = {() => {
-                Players.update({_id:player._id}, {$inc:{score:-1}});
+                Players.update(player._id, {$inc:{score:-1}});
                 }}> -1 </button>
                 <button onClick = {() => {
-                  Players.update({_id:player._id}, {$inc:{score:1}});
+                  Players.update(player._id, {$inc:{score:1}});
                 }}> +1 </button>
-            <button onClick = {() => Players.remove({ _id:player._id})}> X </button>
+            <button onClick = {() => Players.remove(player._id)}> X </button>
          </p>;
   });
   };
@@ -34,22 +36,23 @@ const addUser = (e) => {
   if(newPlayer){
     e.target.playerName.value='';//we make the form empty not the value
     e.target.playerScore.value='';
-    Players.insert({name:newPlayer, score:parseInt(playerScore)});
+    Players.insert({name:newPlayer, score:playerScore});
   }
 
 };
 
+
+//Meteor START
+
 Meteor.startup (() => {
   Tracker.autorun(()=>{ // trackes colelctions and does something when
     let players = Players.find().fetch(); // fetch collection from database
-    let title = 'Score Keeper';
-    let name = 'Abul Qasim';
+    let title = 'Golf Score Card';
     let jsx =
     (<div>
-      <h1>{title}</h1>
-      <p> Hey {name}! </p>
-      <p> Welcome tos my web This is in test satge</p>
+      <TitleBar/>
       {renderPlayers(players)}
+      <AddPlayer/>
       <form onSubmit={addUser}>
       <input type='text' name='playerName' placeholder='Player Name'></input>
       <input type='number' name='playerScore' placeholder='Player Score'></input>
