@@ -8,3 +8,5 @@ JSX interacts with server mongo db.
 MiniMongo added on client side, allowing DDP to sync data on all browsers
 
 ES5 functions were changed later on to ES6 arrow functions
+
+seprare ui file for AddPlayer function
