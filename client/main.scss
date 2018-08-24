@@ -1,0 +1,7 @@
+$gradient1:linear-gradient(90deg, #e66465, #9198e5);
+$gradient2:linear-gradient(90deg, red, black);
+body {
+  padding: 25px;
+  font-family: sans-serif;
+  background: $gradient1;
+}
