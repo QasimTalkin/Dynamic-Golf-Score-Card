@@ -9,11 +9,6 @@ import {Players} from './../imports/api/players'; // imports player collection f
 
 
 
-const removeUser = (e) => {
-  let userId = e.target.id;
-  Player.remove({_id:userId});
-};
-
 
 
 
@@ -21,7 +16,7 @@ const removeUser = (e) => {
 
 Meteor.startup (() => {
   Tracker.autorun(()=>{ // trackes colelctions and does something whe
-    let players = Players.find().fetch();
+    let players = Players.find({}, {sort: {score: 1}}).fetch();
     let title = 'Golf Score Card';
     ReactDom.render(<App players={players} title={title}/>, document.getElementById('app'));
   });

@@ -4,6 +4,7 @@ import Player from './Player';
 
 
 export default class PlayerList extends React.Component {
+
   renderPlayers(){
     if (this.props.players.length === 0){
       return <p> Welcome 😎 Please Strat by Adding Players </p>;
