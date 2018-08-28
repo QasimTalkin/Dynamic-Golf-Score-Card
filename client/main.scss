@@ -1,7 +1,18 @@
-$gradient1:linear-gradient(90deg, #e66465, #9198e5);
-$gradient2:linear-gradient(90deg, red, black);
+$gradient:linear-gradient(45deg, #B2FEFA, #0ED2F7, #D66D75, #E29587, #C33764, #1D2671,#4568DC, #B06AB3);
+
 body {
-  padding: 25px;
-  font-family: sans-serif;
-  background: $gradient1;
+  background: $gradient;
+  background-size: 7000% 7000%;
+  font-family: Helvatica, Arial, sans-serif;
+
+
+
+
+  animation: fluidBackground 100s ease infinite;
+
+@keyframes fluidBackground {
+    0%{background-position:0% 29%}
+    50%{background-position:100% 72%}
+    100%{background-position:0% 29%}
+}
 }
