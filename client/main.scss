@@ -22,6 +22,9 @@ body {
   }
 }
 
+input, button, select{
+  font-size: 1.5rem;
+}
 
 h1{
   font-weight: 300;
@@ -35,6 +38,11 @@ h1{
   text-align: center;
 }
 
+.title-bar__subtitle{
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
 .wrapper {
   margin:0 auto;
   max-width: 50rem;
@@ -46,4 +54,71 @@ h1{
   border: 1px solid #e8e8e8;
   margin-bottom:1.3rem;
   padding:1.3rem;
+}
+
+.item__message{
+  color:rgb(214, 74, 64);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  border:1.5px solid #555555;
+  color: #555555;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: 1.3rem;
+  outline:none;
+  padding: 1.3rem;
+  transition: background .3s ease, transform .3s ease;
+
+  &:hover, &focus {
+    background: #e8e8e8;
+  }
+  &:active{
+    background: #ca9d9dc9;
+    transform: scale(1.25);
+  }
+}
+
+.button--round{
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+}
+
+.player{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player__name{
+  font-weight: 300;
+  font-size: 2.24rem;
+}
+
+.player__stats{
+  font-size:1.5rem;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.player__actions{
+  flex-shrink: 0;
+}
+
+.form{
+  display: flex;
+}
+
+.form__input{
+  border-color: 2px solid #999191;
+  flex-grow: 1;
+  padding: 0 1.5rem;
+  border-radius: 2%;
 }

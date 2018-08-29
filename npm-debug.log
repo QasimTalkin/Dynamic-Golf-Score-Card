@@ -1,0 +1,77 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'the-package' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData the-package
+8 silly fetchNamedPackageData the-package
+9 silly mapToRegistry name the-package
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'the-package',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'the-package',
+12 silly mapToRegistry   name: 'the-package',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/the-package
+14 verbose request uri https://registry.npmjs.org/the-package
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 6:01:47 PM
+17 verbose request id 5f8cb12db767f786
+18 http request GET https://registry.npmjs.org/the-package
+19 http 200 https://registry.npmjs.org/the-package
+20 verbose headers { date: 'Tue, 28 Aug 2018 22:01:47 GMT',
+20 verbose headers   'content-type': 'application/json; charset=UTF-8',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'set-cookie': [ '__cfduid=d7bcb692641a422d834f335c1ea474db11535493707; expires=Wed, 28-Aug-19 22:01:47 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+20 verbose headers   'cf-cache-status': 'MISS',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'cf-ray': '451a0ef60a15ab48-YYZ',
+20 verbose headers   etag: 'W/"7ea7273a8b0c46300105a63aaad8251f"',
+20 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 verbose headers   'last-modified': 'Sun, 27 May 2018 19:20:31 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip' }
+21 silly get cb [ 200,
+21 silly get   { date: 'Tue, 28 Aug 2018 22:01:47 GMT',
+21 silly get     'content-type': 'application/json; charset=UTF-8',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'set-cookie': [ '__cfduid=d7bcb692641a422d834f335c1ea474db11535493707; expires=Wed, 28-Aug-19 22:01:47 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+21 silly get     'cf-cache-status': 'MISS',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'cf-ray': '451a0ef60a15ab48-YYZ',
+21 silly get     etag: 'W/"7ea7273a8b0c46300105a63aaad8251f"',
+21 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 silly get     'last-modified': 'Sun, 27 May 2018 19:20:31 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip' } ]
+22 verbose get saving the-package to /Users/Qasim/.npm/registry.npmjs.org/the-package/.cache.json
+23 verbose correctMkdir /Users/Qasim/.npm correctMkdir not in flight; initializing
+24 verbose stack TypeError: Cannot convert undefined or null to object
+24 verbose stack     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:125:29)
+24 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+24 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+24 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+24 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:241:18
+24 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+25 verbose cwd /Users/Qasim/Desktop/WebDev/ScoreKeep
+26 error Darwin 17.7.0
+27 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "the-package"
+28 error node v6.10.2
+29 error npm  v3.10.10
+30 error Cannot convert undefined or null to object
+31 error If you need help, you may report this error at:
+31 error     <https://github.com/npm/npm/issues>
+32 verbose exit [ 1, true ]

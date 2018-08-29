@@ -1,14 +1,13 @@
 import React from "react";
+import FlipMove from 'react-flip-move';
 import PropTypes from 'prop-types';
 import Player from './Player';
-
-
 export default class PlayerList extends React.Component {
 
   renderPlayers(){
     if (this.props.players.length === 0){
       return (<div className="item">
-                <p> Welcome 😎 Please Strat by Adding Players </p>
+                <p className="item__message" > Welcome 😎 Please Strat by Adding Players </p>
               </div>
               );
     }
@@ -20,7 +19,10 @@ export default class PlayerList extends React.Component {
   }
 
 render(){
-    return (<div> {this.renderPlayers()} </div>);
+    return (<div> <FlipMove>
+                    {this.renderPlayers()} 
+                  </FlipMove>
+          </div>);
   }
 };
 
