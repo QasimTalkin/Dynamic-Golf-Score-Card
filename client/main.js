@@ -1,4 +1,4 @@
-console.log('CLINET/MAIN: log');
+
 import './main.html';
 import React from 'react';
 import ReactDom from 'react-dom';
