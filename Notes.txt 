@@ -1,0 +1,71 @@
+regular vs es5 function. 
+//ex5
+let square  = function (x){
+    return X*X 
+}; 
+//or 
+function square(x) = {return x*x};
+
+let square = (x) => x*x ; //simple function. 
+supports simplified syntax. three for add, returned used behind the scene 
+*arrow function do not bind "this" keyword. if using methods dont use arrow functions add
+as they dont bind this keyword. 
+* the use of this not this funciton we use settimeout. 
+
+ *es5 binds this keyword therefore it will losse whats outside for it is looking for this within in 
+
+ setTimeout (funciton, 100);
+
+ we can use both es5 es6 
+
+ numbers.map
+
+ let numarray = [9,99,999]
+ let numfunc = somename.map((numarray) => numarray+1);
+ }
+
+ conditional rendering!!!!
+
+
+ es6 template string. which is like using + on 'string $(js expression)'
+
+
+
+
+let qasim = new Person ("Qasim", 22);
+
+--mogodb update {$set{s}} //update alone will update the entre document so we use modo db operators 
+
+
+~~~~FLIP MOVE~~~~~ 3rd party library for animation of cards! 
+import thn use 
+read document! 
+
+~~~ calculating used position!  
+
+onbject spread and object shorthand 
+syntax!! ~ ... ~ 
+takes one ~  object spread it over in case of similar object the order matters and the one below will overwrite the one on top. 
+
+eg : 
+
+let user = {
+    name: "Qasim",
+    location: "Ottawa"
+}; 
+// spread syntax!  ~ ... ~
+let person = { 
+    ...user,
+    age: 25};
+
+~~~~~    // ~object property shorthand 
+
+let bike = "Q";
+let stuff = {
+    bike,
+    name:"Qasim"
+};
+
+
+
+~Numeral libray JS! 
