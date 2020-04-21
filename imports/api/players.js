@@ -14,7 +14,7 @@ let rank = 1;
         return {
             ...player, 
             rank,
-            position: numeral(rank).format('0o')
+            position: numeral(rank).format('0o') 
         };
 
     });

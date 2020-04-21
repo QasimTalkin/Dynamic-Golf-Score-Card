@@ -3,6 +3,14 @@ $gradient:linear-gradient(45deg, #B2FEFA, #0ED2F7, #D66D75, #E29587, #C33764, #1
   padding: 0;
   margin: 0;
 }
+$green: #e4ede0;
+$myGreen: darken($green, 15%);
+
+$blue: #efe7ed;
+$myBlue: darken($blue, 15%);
+
+$red: #eddfdf;
+$myRed: darken($red, 15%);
 
 html{
   font-size: 62.5%;
@@ -13,7 +21,7 @@ body {
   background: $gradient;
   background-size: 4000% 4000%;
   font-family: Helvatica, Arial, sans-serif;
-  animation: fluidBackground 100s ease infinite;
+  animation: fluidBackground 20s ease infinite;
   font-size: 1.6rem;
 @keyframes fluidBackground {
     0%{background-position:0% 29%}
@@ -65,7 +73,7 @@ h1{
 }
 
 .button {
-  background-color: white;
+  background-color:transparent;
   border:1.5px solid #555555;
   color: #555555;
   cursor: pointer;
@@ -122,3 +130,19 @@ h1{
   padding: 0 1.5rem;
   border-radius: 2%;
 }
+
+.item--postion-1 {
+  border-color:rgb(118, 203, 118);
+  background: $green;
+  background-color: $myGreen ;
+}
+.item--postion-2 {
+  border-color:rgb(98, 98, 216);
+  background: $blue;
+  background-color: $myBlue;
+} 
+.item--postion-3 {
+  border-color:rgb(225, 123, 123);
+  background: $red;
+  background-color:$myRed;
+} 
