@@ -12,8 +12,8 @@
     "meteor-node-stubs": "^0.4.1",
     "numeral": "^2.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.2"
   },
   "meteor": {
