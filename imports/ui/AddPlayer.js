@@ -25,7 +25,7 @@ export default class AddPlayer extends React.Component {
         {this.props.children}
         <form onSubmit={this.addUser.bind(this)} className="form" >
           <input className="form__input" type='text' name='playerName' placeholder='Player Name'></input>
-          <input className="form__input"  type='number' name='playerScore' placeholder='Player Score'></input>
+          <input className="form__input"  minlength="5" type='number' name='playerScore' placeholder='Player Score'></input>
           <button className="button">ADD</button>
         </form>
       </div>

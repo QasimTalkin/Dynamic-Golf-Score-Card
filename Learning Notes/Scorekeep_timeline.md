@@ -100,7 +100,17 @@ It can be said that a variable declared with var is defined throughout the progr
 
    // map an array method - takex in a
    ```
-   
+
+**MAP**
+```js
+// MAP
+let arrr = [6,7,8,8,9,9,33,33]
+let newarr = arrr.map((eachArray, indexNum)=> eachArray+1 + "@[" + indexNum + "]");
+console.log(arrr + " after \n" + newarr);
+//OUTPUT
+//6,7,8,8,9,9,33,33 after 
+//7@[0],8@[1],9@[2],9@[3],10@[4],10@[5],34@[6],34@[7]
+```
 **VS code extension "JavaScript Docstrings"** 
    - Create JsDoc using cmd+shft+p and looking for JsDcoc 
    - example JsDoc Class 
@@ -151,6 +161,12 @@ It can be said that a variable declared with var is defined throughout the progr
 **No real winner**
 
 ## Creating MogoDb 
+- MOGODb is synchronous 
+
+creating a collection 
+```js
+Players = new Mongo.Collection('players');
+```
 
 ### Imports (having all our collections)
 
@@ -254,3 +270,165 @@ console.log("Qasim");
    import {Tracker} from 'meteor/tracker'; 
    Tracker.autorun(()=>{});
    ```
+- adding players.js in api folder under imports 
+- we start the constructor function with lowercase parameter 
+```js
+export const Players = new Mongo.Collection('players');
+```
+## Inserting a player. 
+- creating a form element to get user input. 
+- textbox -> type :text, name for accessing it -> playerName, placeholder -> Player name
+- button to add player 
+- event listener to prevent default. 
+   ```js
+   <form onSubmit={some function()}>
+   ```
+- user preventDefault to prevent loading from happening
+   ```js 
+      function(event){
+   event.preventDefault()
+      }
+   ```
+- prevent default, clear it up if needed and insert player using 
+
+## ES6 Arrow function. 
+**This is JS**
+-  much like objects functions have their own property, *this* being one of them 
+- *this* always holds the reference to a single object, that defines the current line of code’s execution context.
+- functions in JS are invoked in following manner 
+   1.Function invocation
+      - THIS with function invocation.
+      - calling the function --- something()
+      - this inside the something() function has value of the global objects (window object in browser environment). 
+      - 'use strict' the default value of this, for any function object is set to undefined instead of the global object.
+
+   2.Method invocation
+      - Functions, when defined as fields or properties of objects, are referred to as methods. 
+      - method invocation is of that function defined in an object. 
+      - invoking a function within a method to avoid being global ref to *this* we user thisreference
+   3.Constructor invocation
+   - Constructor invocation is performed when new keyword is followed by a function name, and a set of opening and closing parentheses(with or without arguments).
+   ```js 
+   let person1= new People(‘John’, 21);
+    ```
+   Here, person1 is the newly created object and People is the constructor function used to create this object.
+
+   **This and Arrow Functions**
+   - Arrow functions, introduced in ES6, provides a concise way to write functions in JavaScript.
+   - Another significant advantage it offers is the fact that it does not bind its own this. In other words, the value of *this* depends on enclosing context.
+   - when invoking function within object the context is set to global or have to use this reference 
+   - undefined without lexical bindings vs arrow function lexical binding. 
+      ```js 
+       let People = function(person, age) { 
+        this.person = person; 
+        this.age = age; 
+        this.info = function() { 
+  
+         // logs People 
+         document.write(this); 
+  
+         setTimeout(function() { 
+            // here this!=People 
+           document.write(this.person + " is " + this.age +  
+                                              " years old"); 
+          }, 3000); 
+        } 
+      // OUTPUTS : undefined is undefined years old
+
+       let People = function(person, age) { 
+        this.person = person; 
+        this.age = age; 
+        this.info = function() { 
+  
+            // logs People 
+            document.write(this);  
+  
+           setTimeout(() => {  
+            // arrow function to make lexical "this" binding 
+            // here this=People."this" has been inherited 
+            document.write(this.person + " is " + this.age  
+                                           + " years old"); 
+           }, 3000); 
+        } 
+        // OUTPUT: John is 12 years old. 
+
+        let person1 = new People('John', 12); 
+      ```
+ -  In other words, an arrow function’s this value is the same as it was immediately outside it. 
+- arrow functions are anno functions. 
+- arrow function don't bind this keyword or arguments. 
+- arrow function bind this from parent method. 
+- es 5 fucntion does not. 
+
+```js 
+
+function qasim1() {
+     let name = "abul";
+     this.age = 22;
+     let qasim = { name: 'Qasim', age : '23',
+                topo: ()=> {
+                    setTimeout(()=> {console.log(this.age)}, 1000);
+                }
+                }
+     qasim.topo();
+}
+qasim1(); // outputs 22
+
+```
+```js
+function qasim1() {
+     let name = "abul";
+     this.age = 22;
+     let qasim = { name: 'Qasim', age : '23',
+                topo() {
+                    setTimeout(()=> {console.log(this.age)}, 1000);
+                }
+                }
+     qasim.topo();
+}
+qasim1(); // outputs 23
+```
+
+getting the right parent value.m 
+
+
+
+ **this in separated methods**
+```js
+ let person1 
+    = new People('John', 21); 
+// separating the method info() from its 
+// object by storing it in a variable 
+let separated = person1.info; 
+```
+- Once we separate the info() from the person1 object by storing it in separated, we lose all references to the person1 object
+- One way is to bind the value of an object with the method when storing the method in separated 
+`let separated = person1.info.bind(person1)`
+
+**bind, call and apply**
+
+***bind()***
+- bind() allows us to explicitly define what value this will have inside a function by binding an object to that function.
+- we need primarily two things – An object to bind to a function and a function that this object is to be bound to. 
+`boundfunction = someFunction.bind(someObject, additionalParams);`
+- binding an object explicitly to a function overrides its normal context rules and forcefully sets all this values to the bound object inside 
+
+**call() and apply()**
+- call() and apply() immediately calls the function, as opposed to simply preparing a copy of the function with a bound this value for future use.
+call:
+`function.call(thisValue, arg1, arg2, ...)`
+apply:
+`function.apply(thisValue, [ arg1, arg2, ...])`
+
+-------------------------------- 20 --------------------------------
+
+**removing a document from MongoDb** 
+
+- target a specific document `db.players.find({name:'qasim'})`
+- remove the document by name `db.players.remove({name:"Qasim"})`
+- using JSX to create button and function 
+```js 
+<button className="button button--round" onClick = {() => Players.remove(this.props.player._id)}> X 
+</button>
+```
+Then we implement + and minus buttons. 
