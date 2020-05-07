@@ -420,8 +420,6 @@ call:
 apply:
 `function.apply(thisValue, [ arg1, arg2, ...])`
 
--------------------------------- 20 --------------------------------
-
 **removing a document from MongoDb** 
 
 - target a specific document `db.players.find({name:'qasim'})`
@@ -432,3 +430,136 @@ apply:
 </button>
 ```
 Then we implement + and minus buttons. 
+
+* button press -> update mongo DB 
+* need to use set of operators for example $set
+`collection.findAndModify()`
+* $set -> set value
+* $inc -> increment 
+
+```js
+<p key={player._id}>
+<button onClick={()=>{
+   players.update({_id:value}, {$inc: {some inc value, use negative to decrease}});
+}}>
+<p>
+```
+-------------------------------------
+## React Components 
+-------------------------------------
+ - breaking individual parts out 
+ - reusable pieces 
+ - isolated components
+ ```js
+
+<CustomName/> 
+use it again by just addinfg 
+<CustomName/>
+ ```
+> break out the app into isolated components (eg:title, player, player list, add player, parent app component)
+- ES6 classes. 
+**Classes to support React component**
+   - inheritance module in JS
+   - class expression and class declaration (like function declaration [normal function], and expression [no name function let fss = {return something}]
+   - Function declaration (hoisted) vs Class declaration (not hoisted)
+      - Hoisting : can declare the function later to aces it. Class needs to be declared first to be hoisted. 
+      - if not ReferenceError
+   - Class declaration are named `Class Qasim {constructor (age, name){this.age=age; this.name=name;}};`
+   - class expression can be unnamed `let Qasim = Qasim {constructor (age, name){this.age=age; this.name=name;}};`
+   - The name given to a named class expression is local to the class's body. (it can be retrieved through the class's (not an instance's) name property, though).
+      ```js 
+      // unnamed
+      let Rectangle = class {
+      constructor(height, width) {
+         this.height = height;
+         this.width = width;
+      }
+      };
+      console.log(Rectangle.name);
+      // output: "Rectangle"
+
+      // named
+      let Rectangle = class Rectangle2 {
+      constructor(height, width) {
+         this.height = height;
+         this.width = width;
+      }
+      };
+      console.log(Rectangle.name);
+      // output: "Rectangle2"
+
+      ```
+   - operates in strict mode! 
+      - First, strict mode makes it impossible to accidentally create global variables
+      - Second, strict mode makes assignments which would otherwise silently fail to throw an exception. 
+      - Third, strict mode makes attempts to delete undeletable properties throw
+      - Fourth, strict mode prior to Gecko 34 requires that all properties named in an object literal be unique. 
+         `'use strict'; var o = { p: 1, p: 2 }; // !!! syntax error`
+      - Fifth, strict mode requires that function parameter names be unique. `fucntion qas(a,a,n) \\wrong`
+   - There can only be one special method with the name "constructor" in a class. A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method.
+   - The static keyword defines a static method for a class. 
+   - static methods are called without instantiating their class and cannot be called through a class instance.  
+      ```js 
+      class Point {
+      constructor(x, y) {
+         this.x = x;
+         this.y = y;
+      }
+
+      static distance(a, b) {
+         const dx = a.x - b.x;
+         const dy = a.y - b.y;
+
+         return Math.hypot(dx, dy);
+      }
+      }
+      const p1 = new Point(5, 5);
+      const p2 = new Point(10, 10);
+      p1.distance; //undefined
+      p2.distance; //undefined
+
+      console.log(Point.distance(p1, p2)); // 7.071067811865475
+      ```
+   - The extends keyword is used in class declarations or class expressions to create a class as a child of another class.
+- instead of returning string "qqqq" + this.name... we use betel versions **template strings**
+like use back tick ` to start the template string and call arguments using ${this.someValue}
+- we need to ue *Extends* to create react components. 
+PLAYGROUND
+```js 
+class Qasim {
+    constructor(name, age = Infinity){
+        this.name = name; // referees to individual instance 
+        this.age = age;
+    }
+
+    getSomeString() {
+        return `Hello ${this.name}, you dont look ${this.age} at all`
+    }
+}
+
+
+class Title extends Qasim {
+    constructor (name, age,title){
+        super(name, age);
+        this.title = title;
+    }
+    getSomeString() {
+        return `Hello ${this.name}, you don't look ${this.age} at all and you sure are a good ${this.title}`
+    }
+}
+let me = new Title ('abul', 12, 'Dev');
+console.log(me.getSomeString());
+```
+
+**React Components**
+
+- Components are independent and reusable bits of code,  and returns HTML via a render function.component has to include the extends React.Component statement, this statement creates an inheritance to React.Component, and gives your component access to React.Component's functions.
+   ```js 
+      class Car extends React.Component {
+         render() {
+            return <h2>Hi, I am a Car!</h2>;
+         }
+      }
+   ```
+- Props are arguments passed into React components as attributes on custom tags, Props are passed to components via HTML attributes.
+- reactDocs -> 

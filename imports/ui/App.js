@@ -4,9 +4,12 @@ import AddPlayer from './AddPlayer';
 import PlayerList from './PlayerList';
 export default class App extends React.Component {
 
-  render() {
+  /* <TitleBar> 
+  supplying props to title bar that will render the values on screen based on HTML arguments provided here. 
+  */
+render() {
         return (<div>
-          <TitleBar title={this.props.title} subtitle = "@Qasimtalkin" />
+          <TitleBar title={this.props.title} subtitle = "@Qasimtalkin" link= "https://github.com/QasimTalkin"/>
             <div className="wrapper">
               <PlayerList players={this.props.players}/>
               <AddPlayer/>
@@ -15,3 +18,5 @@ export default class App extends React.Component {
       //
     }
   };
+
+  

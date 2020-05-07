@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// props coming from argument on the title bar 
 export default class TitleBar extends React.Component {
   renderSubtitle () {
     if(this.props.subtitle){
-      return <h3>{this.props.subtitle}</h3>;
+      return <h3><a href={this.props.link}>{this.props.subtitle}</a></h3>;
     }
   }
   render () {
@@ -22,4 +24,8 @@ export default class TitleBar extends React.Component {
 TitleBar.propTypes = {
   title:  PropTypes.string.isRequired,
   subtitle:  PropTypes.string,
+};
+
+TitleBar.defaultProps = {
+  title : '(Title goes here)'
 };
