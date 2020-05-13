@@ -5,5 +5,14 @@ import { func } from 'prop-types';
 
 Meteor.startup(() => {
 
+        let obj = {
+            name: "qasim", 
+            qasimN () {
+                console.log(`${this.name}`);
+            }
+        };
+
+        obj.qasimN();
+
 });  // end meteor Startup 
 

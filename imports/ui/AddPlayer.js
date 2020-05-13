@@ -14,7 +14,7 @@ export default class AddPlayer extends React.Component {
     if(newPlayer){
       e.target.playerName.value='';//we make the form empty not the value
       e.target.playerScore.value='';
-      Players.insert({name:newPlayer, score:parseInt(playerScore)});
+      Players.insert({name:newPlayer, score:parseInt(playerScore)}); // adding it to MongoDB
     }
   }
 

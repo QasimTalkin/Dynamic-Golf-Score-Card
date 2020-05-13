@@ -557,9 +557,10 @@ console.log(me.getSomeString());
    ```js 
       class Car extends React.Component {
          render() {
-            return <h2>Hi, I am a Car!</h2>;
+            return <h2>Hi,s I am a Car!</h2>;
          }
       }
    ```
 - Props are arguments passed into React components as attributes on custom tags, Props are passed to components via HTML attributes.
-- reactDocs -> 
+- reactDocs
+- 
