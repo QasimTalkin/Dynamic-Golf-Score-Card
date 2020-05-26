@@ -23,8 +23,9 @@ Meteor.startup (() => {
 
   //setTimeout(function(){console.log('Qasim', Players.find().fetch())}, 1000);
 
+  //Tracker.autorun() -> updates based on changes in DB
   Tracker.autorun(()=>{ 
-    console.log(Players.find().fetch());
+   //console.log(Players.find().fetch());
     let players = Players.find({}, {sort: {score: 1}}).fetch();
     let positionPlayers = calculatePlayerPositions(players);
     let title = 'Golf Score Card';

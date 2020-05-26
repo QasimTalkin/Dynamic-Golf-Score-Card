@@ -21,7 +21,11 @@ export default class Player extends React.Component {
     
           <div className="player__actions">
             <button className="button button--round" 
-              onClick = {() => { Players.update(this.props.player._id, {$inc:{score:-1}});
+              onClick = {() => { 
+                if (this.props.player.score <= 0){
+                  
+                } else
+                Players.update(this.props.player._id, {$inc:{score:-1}});
               }}> -1 
             </button>
 

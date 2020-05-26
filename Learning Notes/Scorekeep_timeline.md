@@ -563,4 +563,42 @@ console.log(me.getSomeString());
    ```
 - Props are arguments passed into React components as attributes on custom tags, Props are passed to components via HTML attributes.
 - reactDocs
-- 
+
+- components, <randomnamee some porps />, Name.propTypes = { player:React.protypes.object.isRequired };
+---- **Callback** ----
+when this happens do this
+we use bind, regardless of what happens use this
+- adding player we use 
+```js
+// onlick or onsubmit needs to store the binding 
+
+    <form onSubmit={this.addUser.bind(this)} className="form" >
+```
+
+---- **conditional rendering** ----
+- usage login show this that 
+- our use we will show list if no list we will show diffrent message 
+- playlist 
+```js
+renderPlayers(){
+    if (this.props.players.length === 0){
+      return (<div className="item">
+                <p className="item__message" > Welcome 😎 Please start by adding players </p>
+              </div>
+              );
+    }
+    else {
+    return this.props.players.map((player)=>{ //after maping
+      return <Player key={player._id} player={player}/>;
+      });
+    }
+  }
+
+```
+- **The App component**
+<titlebar> <playerlsit> <addplayer> 
+- import titilebar addpl
+
+--- **Sorting players** ----
+
+- sorting in mongo db `db.players.find().sort({name:-1})`
