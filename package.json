@@ -1,11 +1,14 @@
 {
   "name": "ScoreKeep",
+  "homepage": "http://qasimtalkin.github.io/Dynamic-Golf-Score-Card",
   "private": true,
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
@@ -22,5 +25,8 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.0.0"
   }
 }
