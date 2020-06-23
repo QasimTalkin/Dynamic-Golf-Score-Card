@@ -20,7 +20,7 @@ export default class PlayerList extends React.Component {
 
 render(){
     return (<div> 
-              <FlipMove maintainContainerHeigh={true} >
+              <FlipMove maintainContainerHeight={true} >
                     {this.renderPlayers()} 
               </FlipMove>
           </div>);
