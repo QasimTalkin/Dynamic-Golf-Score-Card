@@ -24,6 +24,6 @@
     "testModule": "tests/main.js"
   },
   "devDependencies": {
-    "gh-pages": "^3.0.0"
+    "gh-pages": "^5.0.0"
   }
 }
